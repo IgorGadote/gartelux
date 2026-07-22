@@ -1,0 +1,575 @@
+/* --- VARIÁVEIS E CORES --- */
+:root {
+  --bg-color: #F8FAFC;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --primary-color: #0284C7;
+  --primary-hover: #0369A1;
+  --card-bg: #FFFFFF;
+  --border-color: #E2E8F0;
+  --hover-bg: #F0F9FF;
+  --gradient-bg: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Container do Quiz / Layout Geral */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* --- LANDING PAGE (HOME) GRANDE E BONITA --- */
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #E0F2FE;
+  color: #0369A1;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.hero-section p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 35px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.primary-button {
+  background: var(--gradient-bg);
+  color: #fff;
+  border: none;
+  padding: 18px 42px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.4);
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.5);
+}
+
+/* Imagem Hero Estética */
+.hero-image-container {
+  width: 100%;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.hero-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Seção Sobre a Empresa */
+.about-company {
+  background-color: #F8FAFC;
+  border: 1px solid var(--border-color);
+  padding: 35px;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  text-align: center;
+}
+
+.stat-box {
+  background: #FFF;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.stat-box h4 {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.stat-box span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Vitrine de Afiliados na Home */
+.preview-section {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.preview-card {
+  background: #FFF;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 15px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.preview-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.preview-card h5 {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.preview-card span {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* --- ESTILOS DO QUIZ --- */
+.quiz-header {
+  margin-bottom: 30px;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background-color: var(--border-color);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gradient-bg);
+  transition: width 0.3s ease;
+}
+
+.question-title {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.option-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 20px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background-color: #FFFFFF;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #F1F5F9;
+  color: var(--primary-color);
+  font-weight: bold;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: 0.2s;
+}
+
+.option-button:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+.option-button:hover .option-letter {
+  background-color: var(--primary-color);
+  color: #FFF;
+}
+
+/* --- RESULTADOS --- */
+.results-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.results-header h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-top: 10px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.product-card {
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  background: #FAFAFA;
+  
+  /* Adicionamos flexbox para manter o botão sempre preso no final */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px; /* Trava a altura do espaço da imagem */
+  object-fit: contain; /* Faz a imagem caber dentro do espaço sem distorcer ou cortar */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  
+  /* Truque extra: remove o fundo branco feio de algumas imagens da Amazon */
+  mix-blend-mode: multiply; 
+}
+
+/* Garante que o título do produto empurre o botão para baixo se for muito curto */
+.product-card h4 {
+  font-size: 0.95rem;
+  margin: 10px 0 20px 0;
+  color: var(--text-primary);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy-button {
+  display: block;
+  background-color: var(--text-primary);
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.buy-button:hover {
+  background-color: var(--primary-color);
+}
+
+.upsell-box {
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  border: 1px solid #BAE6FD;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.badge-ebook {
+  background-color: #0284C7;
+  color: #FFF;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.upsell-title {
+  color: #0369A1;
+  margin: 15px 0 10px 0;
+  font-size: 1.4rem;
+}
+
+.upsell-button {
+  display: inline-block;
+  background: var(--gradient-bg);
+  color: #fff;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.restart-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  margin-top: 30px;
+}
+
+/* --- HEADER GLOBAL E LOGO --- */
+/* --- HEADER GLOBAL E LOGO --- */
+.global-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza a logo  */
+  padding: 10px 10px; /* Espaço interno para acomodar a logo  */
+  background-color: var(--card-bg);
+  border-radius: 20px 20px 0 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: -20px; 
+}
+
+.logo-img {
+  height: 150px; /* Altura aumentada para dar bastante destaque */
+  max-width: 100%; 
+  object-fit: contain;
+}
+
+/* --- SEÇÃO DE CONFIANÇA E PROVA SOCIAL --- */
+.trust-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #F1F5F9;
+  padding: 30px 20px;
+  border-radius: 12px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.trust-item h4 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.trust-item p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.testimonials {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.testimonial-card {
+  background: #FFF;
+  border: 1px solid var(--border-color);
+  padding: 25px;
+  border-radius: 12px;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.testimonial-author {
+  display: block;
+  font-weight: bold;
+  font-style: normal;
+  color: var(--text-primary);
+  margin-top: 15px;
+}
+
+/* Animação suave para o carrossel de depoimentos */
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   ZONA DE CHECKOUT DO E-BOOK
+   ========================================= */
+.ebook-landing {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #FFF;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.ebook-landing h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.ebook-features {
+  text-align: left;
+  margin: 30px auto;
+  max-width: 600px;
+  background: #F1F5F9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.ebook-features li {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+/* =========================================
+   RODAPÉ (COMPLIANCE E AVISOS LEGAIS)
+   ========================================= */
+.global-footer {
+  margin-top: 50px;
+  padding: 30px 20px;
+  text-align: center;
+  background-color: #1E293B;
+  color: #94A3B8;
+  font-size: 0.8rem;
+  border-radius: 0 0 20px 20px;
+}
+
+.global-footer p {
+  margin-bottom: 10px;
+}
+
+.global-footer a {
+  color: #CBD5E1;
+  text-decoration: underline;
+  margin: 0 10px;
+}
+
+/* =========================================
+   MOBILE FIRST (RESPONSIVIDADE PARA CELULAR)
+   ========================================= */
+@media (max-width: 768px) {
+  .products-grid {
+    /* Força os produtos a ficarem 1 por linha no celular (ou 2 se quiser alterar para 1fr 1fr) */
+    grid-template-columns: 1fr; 
+  }
+  
+  .trust-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .global-header {
+    padding: 20px;
+  }
+
+  .logo-img {
+    height: 80px; /* Reduz a logo no celular para não bugar a tela */
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+}
