@@ -572,4 +572,25 @@ body {
   .hero-section h1 {
     font-size: 2rem;
   }
+
+  @media (max-width: 768px) {
+  /* ... (mantenha o que já tem aqui) ... */
+
+  /* Corrige a seção Sobre no celular empilhando tudo direitinho */
+  .about-company {
+    flex-direction: column !important;
+    gap: 20px;
+  }
+
+  .about-stats {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+  }
+
+  .stat-box {
+    flex: 1; /* Divide o espaço igualmente para os dois quadros caberem na tela */
+  }
+}
 }
