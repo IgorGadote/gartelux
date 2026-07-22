@@ -548,7 +548,6 @@ body {
    ========================================= */
 @media (max-width: 768px) {
   .products-grid {
-    /* Força os produtos a ficarem 1 por linha no celular (ou 2 se quiser alterar para 1fr 1fr) */
     grid-template-columns: 1fr; 
   }
   
@@ -566,31 +565,33 @@ body {
   }
 
   .logo-img {
-    height: 80px; /* Reduz a logo no celular para não bugar a tela */
+    height: 80px;
   }
 
   .hero-section h1 {
     font-size: 2rem;
   }
 
-  @media (max-width: 768px) {
-  /* ... (mantenha o que já tem aqui) ... */
-
-  /* Corrige a seção Sobre no celular empilhando tudo direitinho */
+  /* FORÇANDO O ALINHAMENTO DA SEÇÃO SOBRE NO CELULAR */
   .about-company {
     flex-direction: column !important;
-    gap: 20px;
+    align-items: stretch !important;
+    gap: 20px !important;
+  }
+
+  .about-text {
+    width: 100% !important;
   }
 
   .about-stats {
-    width: 100%;
-    display: flex;
-    gap: 15px;
-    justify-content: space-between;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
   }
 
   .stat-box {
-    flex: 1; /* Divide o espaço igualmente para os dois quadros caberem na tela */
+    flex: 1 !important;
   }
-}
 }
