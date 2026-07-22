@@ -257,15 +257,63 @@ export default function SkincareQuiz() {
 
       </div>
 
+      {/* TELA 5: TERMOS DE USO */}
+        {telaAtual === 'termos' && (
+          <div className="ebook-landing" style={{ textAlign: 'left' }}>
+            <span className="badge">Legal</span>
+            <h2 style={{ marginBottom: '20px' }}>Termos de Uso</h2>
+            <p style={{ color: '#64748B', lineHeight: '1.6', marginBottom: '15px' }}>
+              Bem-vindo ao Garte Lux. Ao acessar e utilizar nosso site, você concorda com os presentes Termos de Uso. Nosso portal oferece análises informativas e educacionais sobre skincare baseadas em questionários interativos.
+            </p>
+            <h4 style={{ color: '#1E293B', marginTop: '20px', marginBottom: '10px' }}>1. Propriedade Intelectual</h4>
+            <p style={{ color: '#64748B', lineHeight: '1.6', marginBottom: '15px' }}>
+              Todo o conteúdo, layout, algoritmos e identidade visual do Garte Lux são protegidos por leis de propriedade intelectual. É proibida a reprodução não autorizada.
+            </p>
+            <h4 style={{ color: '#1E293B', marginTop: '20px', marginBottom: '10px' }}>2. Isenção de Responsabilidade Médica</h4>
+            <p style={{ color: '#64748B', lineHeight: '1.6', marginBottom: '15px' }}>
+              As recomendações geradas pelo quiz possuem caráter exclusivamente informativo e educativo. Elas não substituem o diagnóstico, avaliação ou prescrição de um médico dermatologista.
+            </p>
+            <div style={{ textAlign: 'center', marginTop: '30px' }}>
+              <button onClick={() => setTelaAtual('home')} className="restart-button">
+                ← Voltar para o Início
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* TELA 6: POLÍTICA DE PRIVACIDADE */}
+        {telaAtual === 'privacidade' && (
+          <div className="ebook-landing" style={{ textAlign: 'left' }}>
+            <span className="badge">LGPD & Privacidade</span>
+            <h2 style={{ marginBottom: '20px' }}>Política de Privacidade</h2>
+            <p style={{ color: '#64748B', lineHeight: '1.6', marginBottom: '15px' }}>
+              O Garte Lux respeita a sua privacidade e está em conformidade com a Lei Geral de Proteção de Dados (LGPD). Esta política descreve como coletamos e tratamos suas informações.
+            </p>
+            <h4 style={{ color: '#1E293B', marginTop: '20px', marginBottom: '10px' }}>1. Dados do Quiz</h4>
+            <p style={{ color: '#64748B', lineHeight: '1.6', marginBottom: '15px' }}>
+              As respostas fornecidas no questionário de pele são utilizadas unicamente em tempo de execução no seu navegador para calcular a melhor recomendação de ativos, sem armazenamento de dados sensíveis em servidores próprios.
+            </p>
+            <h4 style={{ color: '#1E293B', marginTop: '20px', marginBottom: '10px' }}>2. Links de Afiliados e Cookies</h4>
+            <p style={{ color: '#64748B', lineHeight: '1.6', marginBottom: '15px' }}>
+              Utilizamos cookies de rastreamento de parceiros (como o Programa de Associados da Amazon) para contabilizar indicações de compra qualificadas. Ao clicar em nossos links, um cookie é armazenado pelo parceiro para validar a comissão, sem custo adicional para você.
+            </p>
+            <div style={{ textAlign: 'center', marginTop: '30px' }}>
+              <button onClick={() => setTelaAtual('home')} className="restart-button">
+                ← Voltar para o Início
+              </button>
+            </div>
+          </div>
+        )}
+
       {/* ================================================== */}
       {/* RODAPÉ GLOBAL (APARECE EM TODAS AS TELAS) */}
       {/* ================================================== */}
       <footer className="global-footer">
         <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Meta Platforms, Inc.</p>
-        <p>Como Participante do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas efetuadas.</p>
-        <div className="footer-links">
-          <a href="#">Termos de Uso</a>
-          <a href="#">Políticas de Privacidade</a>
+        <p>Como Participante do Programa de Associados da Amazon, sou remunerado pelas compras qualificadas efetuadas.</p>
+        <div className="footer-links" style={{ display: 'flex', justifyContent: 'center', gap: '15px', cursor: 'pointer' }}>
+          <span onClick={() => setTelaAtual('termos')} style={{ textDecoration: 'underline' }}>Termos de Uso</span>
+          <span onClick={() => setTelaAtual('privacidade')} style={{ textDecoration: 'underline' }}>Políticas de Privacidade</span>
         </div>
         <p style={{ marginTop: '20px', fontSize: '0.7rem' }}>&copy; 2026 Garte Lux. Todos os direitos reservados.</p>
       </footer>
