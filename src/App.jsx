@@ -70,7 +70,7 @@ export default function SkincareQuiz() {
     <div className="container" style={{ padding: 0 }}> 
       
       <header className="global-header">
-        <img src="/logo.png" alt="Logo Garte Lux" className="logo-img" />
+        <img src="produtos/logo.png" alt="Logo Garte Lux" className="logo-img" />
       </header>
 
       <div style={{ padding: '40px 20px' }}> 
@@ -90,7 +90,7 @@ export default function SkincareQuiz() {
             </div>
 
             <div className="hero-image-container">
-              <img src="/hero-image.jpg" alt="Estética e Cuidados com a Pele" />
+              <img src="produtos/hero-image.jpg" alt="Estética e Cuidados com a Pele" />
             </div>
 
             <div className="trust-section">
