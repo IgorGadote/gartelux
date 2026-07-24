@@ -53,18 +53,64 @@ export default function SkincareQuiz() {
   };
 
   const obterProdutosRecomendados = () => {
-    const filtrados = skincareData.produtos_afiliados.filter(produto => {
-      return (produto.gatilho.acne ? pontuacao.acne >= produto.gatilho.acne : true) &&
-             (produto.gatilho.oleosidade ? pontuacao.oleosidade >= produto.gatilho.oleosidade : true) &&
-             (produto.gatilho.ressecamento ? pontuacao.ressecamento >= produto.gatilho.ressecamento : true) &&
-             (produto.gatilho.manchas ? pontuacao.manchas >= produto.gatilho.manchas : true) &&
-             (produto.gatilho.sensibilidade ? pontuacao.sensibilidade >= produto.gatilho.sensibilidade : true) &&
-             (produto.gatilho.antiidade ? pontuacao.antiidade >= produto.gatilho.antiidade : true) &&
-             (produto.gatilho.olheiras ? pontuacao.olheiras >= produto.gatilho.olheiras : true) &&
-             (produto.gatilho.textura ? pontuacao.textura >= produto.gatilho.textura : true);
+    const listaProdutos = skincareData.produtos_afiliados || skincareData.produtos || [];
+    if (listaProdutos.length === 0) return [];
+
+    const produtosComScore = listaProdutos.map(produto => {
+      let scoreTotal = 0;
+
+      if (!produto.gatilho) {
+        return { ...produto, score: 0 };
+      }
+
+      Object.keys(produto.gatilho).forEach(chave => {
+        if (chave === 'todos') {
+          scoreTotal += 5;
+        } else if (pontuacao[chave] !== undefined && pontuacao[chave] > 0) {
+          const pesoUsuario = pontuacao[chave];
+          const pesoProduto = produto.gatilho[chave];
+          scoreTotal += pesoUsuario * pesoProduto;
+        }
+      });
+
+      return {
+        ...produto,
+        score: scoreTotal
+      };
     });
-    return filtrados.slice(0, 6); 
+
+    produtosComScore.sort((a, b) => b.score - a.score);
+
+    const recomendadosRelevantes = produtosComScore.filter(p => p.score > 0);
+    return recomendadosRelevantes.slice(0, 6);
   };
+
+  // 1. Calcula o Tipo de Pele exato com margem de tolerância para Pele Mista
+  const calcularTipoPele = (pontos) => {
+    const oleo = pontos.oleosidade || 0;
+    const seco = pontos.ressecamento || 0;
+
+    if (oleo < 3 && seco < 3) {
+      return 'Mista/Equilibrada';
+    }
+
+    const diferenca = Math.abs(oleo - seco);
+    if (oleo >= 3 && seco >= 3 && diferenca <= 2) {
+      return 'Mista/Equilibrada';
+    }
+
+    if (oleo > seco) {
+      return 'Oleosa';
+    } 
+    
+    if (seco > oleo) {
+      return 'Seca';
+    }
+
+    return 'Mista/Equilibrada';
+  };
+
+  const tipoPeleExato = calcularTipoPele(pontuacao);
 
   return (
     <div className="container" style={{ padding: 0 }}> 
@@ -92,6 +138,22 @@ export default function SkincareQuiz() {
             <div className="hero-image-container">
               <img src="produtos/hero-image.jpg" alt="Estética e Cuidados com a Pele" />
             </div>
+
+        {/* ================================================== */}
+        {/* CHAMADA DO E-BOOK NA HOME */}
+        {/* ================================================== */}
+          <div className="ebook-promo-home" style={{ backgroundColor: '#F8FAFC', padding: '30px 20px', borderRadius: '12px', marginTop: '40px', textAlign: 'center', border: '1px solid #E2E8F0' }}>
+            <span className="badge" style={{ backgroundColor: '#DBEAFE', color: '#1E40AF', padding: '5px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold' }}>
+            Material Exclusivo
+            </span>
+            <h3 style={{ color: '#1E293B', marginTop: '15px' }}>Skincare Inteligente: O Guia Definitivo</h3>
+            <p style={{ color: '#64748B', lineHeight: '1.6', marginBottom: '20px', maxWidth: '500px', margin: '10px auto 20px' }}>
+             Transforme a forma como você compra cosméticos. Aprenda a interpretar rótulos, identificar ativos eficazes e investir apenas em produtos que realmente fazem sentido para sua pele. Chega de gastar dinheiro sem obter resultado!
+            </p>
+            <button onClick={() => setTelaAtual('ebook')} className="action-button" style={{ backgroundColor: '#1E293B', color: 'white', padding: '12px 25px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}>
+              Conhecer o E-book
+            </button>
+          </div>
 
             <div className="trust-section">
               <div className="trust-item">
@@ -179,6 +241,56 @@ export default function SkincareQuiz() {
               <p>Esta é a sua rotina ideal validada pela ciência.</p>
             </div>
             
+           <div className="rotina-container" style={{ backgroundColor: '#F1F5F9', padding: '25px', borderRadius: '12px', marginBottom: '30px', marginTop: '20px', textAlign: 'left' }}>
+        <h3 style={{ color: '#0F172A', marginBottom: '10px' }}>
+          Diagnóstico: Seu tipo de pele tem forte tendência <span style={{ color: '#3B82F6' }}>{tipoPeleExato}</span>
+        </h3>
+        <p style={{ color: '#475569', fontSize: '0.9rem', marginBottom: '20px' }}>
+          Baseado na sua anamnese, desenhamos esta rotina minimalista para maximizar resultados:
+        </p>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+          
+          {/* ROTINA DIURNA (MANHÃ) */}
+          <div style={{ flex: '1', minWidth: '250px', backgroundColor: 'white', padding: '15px', borderRadius: '8px', borderLeft: '4px solid #F59E0B' }}>
+            <h4 style={{ color: '#F59E0B', marginBottom: '10px' }}>☀️ Manhã</h4>
+            <ul style={{ color: '#334155', fontSize: '0.9rem', lineHeight: '1.8', paddingLeft: '20px', margin: 0 }}>
+              <li><strong>1. Limpeza:</strong> Sabonete suave para remover impurezas noturnas.</li>
+              <li><strong>2. Tratamento:</strong> Vitamina C ou Sérum antioxidante.</li>
+              
+             {tipoPeleExato === 'Oleosa' ? (
+              <li><strong>3. Hidratação:</strong> Gel ou loção fluida (Oil-free).</li>
+            ) : tipoPeleExato === 'Seca' ? (
+              <li><strong>3. Hidratação:</strong> Creme denso e reparador.</li>
+            ) : tipoPeleExato === 'Mista/Equilibrada' ? (
+              <li><strong>3. Hidratação:</strong> Loção hidratante leve ou gel-creme equilibrante.</li>
+            ) : null}
+              
+              <li><strong>4. Proteção:</strong> Protetor Solar (Obrigatório).</li>
+            </ul>
+          </div>
+
+          {/* ROTINA NOTURNA (NOITE) */}
+          <div style={{ flex: '1', minWidth: '250px', backgroundColor: 'white', padding: '15px', borderRadius: '8px', borderLeft: '4px solid #3B82F6' }}>
+            <h4 style={{ color: '#3B82F6', marginBottom: '10px' }}>🌙 Noite</h4>
+            <ul style={{ color: '#334155', fontSize: '0.9rem', lineHeight: '1.8', paddingLeft: '20px', margin: 0 }}>
+              <li><strong>1. Limpeza Dupla:</strong> Cleansing oil seguido de gel de limpeza.</li>
+              
+              {/* Tratamento Noturno customizado para as 3 vertentes */}
+             {tipoPeleExato === 'Oleosa' ? (
+                <li><strong>2. Tratamento:</strong> Ácido Salicílico ou Mandélico para controle de poros.</li>
+              ) : tipoPeleExato === 'Seca' ? (
+                <li><strong>2. Tratamento:</strong> Ácido Hialurônico ou Hidratação profunda.</li>
+              ) : tipoPeleExato === 'Mista/Equilibrada' ? (
+                <li><strong>2. Tratamento:</strong> Ácido Mandélico leve ou Niacinamida para zonas mistas.</li>
+              ) : null}
+              
+              <li><strong>3. Reparação:</strong> Hidratante focado em barreira cutânea.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
             <h3 style={{ marginBottom: '20px', color: '#1E293B', textAlign: 'center' }}>Top Produtos Para o Seu Perfil</h3>
             
             <div className="products-grid">
@@ -197,12 +309,12 @@ export default function SkincareQuiz() {
               )}
             </div>
 
-            {/* O GATILHO QUE LEVA PARA A NOVA PÁGINA DO E-BOOK */}
+            {/* GATILHO PARA A NOVA PÁGINA DO E-BOOK A PARTIR DO RESULTADO DO QUIZ */}
             <div className="upsell-box" style={{ marginTop: '40px' }}>
               <span className="badge-ebook">Material Exclusivo</span>
               <h3 className="upsell-title">Quer aprofundar seus resultados?</h3>
               <p style={{ color: '#64748B', fontSize: '0.95rem', margin: '10px 0 20px 0' }}>
-                Adquira o e-book desenvolvido por especialistas e aprenda a decifrar a barreira cutânea e rótulos de cosméticos.
+                Adquira o e-book desenvolvido por especialistas e aprenda a decifrar a barreira cutânea, rótulos de cosméticos e muito mais!
               </p>
               <button onClick={() => setTelaAtual('ebook')} className="upsell-button" style={{ border: 'none', cursor: 'pointer', width: '100%' }}>
                 Ver Detalhes do E-book
@@ -217,7 +329,7 @@ export default function SkincareQuiz() {
                 }} 
                 className="restart-button"
               >
-                Voltar ao Início / Refazer Teste
+                ← Voltar ao Início 
               </button>
             </div>
           </div>
@@ -229,27 +341,37 @@ export default function SkincareQuiz() {
         {telaAtual === 'ebook' && (
           <div className="ebook-landing">
             <span className="badge">Guia Definitivo</span>
-            <h2>O Guia da Barreira Intacta</h2>
+            <h2>Skincare Inteligente: O Guia Definitivo</h2>
             <p style={{ fontSize: '1.1rem', color: '#64748B' }}>
-              Você já tem a lista de produtos ideais. Agora, aprenda o protocolo exato para controlar a produção de sebo, secar inflamações e uniformizar seu tom de pele em 21 dias.
+              Transforme a forma como você compra cosméticos. Aprenda a interpretar rótulos, identificar ativos eficazes e investir apenas em produtos que realmente fazem sentido para sua pele. Chega de gastar dinheiro sem um propósito!
             </p>
             
             <div className="ebook-features">
               <h4 style={{ marginBottom: '15px', color: '#1E293B' }}>O que você vai aprender:</h4>
               <ul style={{ listStyleType: 'none', padding: 0 }}>
-                <li>✅ A ordem correta de aplicar cada ácido para evitar o efeito rebote.</li>
-                <li>✅ Como identificar rótulos que pioram a acne (ingredientes comedogênicos).</li>
-                <li>✅ O ciclo noturno para clarear manchas sem arder a pele.</li>
+                <li>✅ Como descobrir se um produto realmente vale o preço que custa.</li>
+                <li>✅ Como analisar qualquer lista de ingredientes (INCI) mesmo sem conhecimento técnico.</li>
+                <li>✅ Quais ativos realmente funcionam para acne, manchas, oleosidade, rugas e hidratação.</li>
+                <li>✅ Como identificar ingredientes usados apenas para marketing.</li>
+                <li>✅ Como descobrir se um ingrediente está em uma concentração relevante.</li>
+                <li>✅ Como comparar dois produtos e escolher o melhor custo-benefício.</li>
+                <li>✅ Como montar uma rotina personalizada para o seu tipo de pele.</li>
+                <li>✅ Os erros que fazem milhares de pessoas desperdiçarem dinheiro com skincare.</li>
               </ul>
             </div>
 
-            <a href="SEU_LINK_DA_HOTMART_OU_KIWIFY_AQUI" className="primary-button" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginBottom: '20px', width: '100%', maxWidth: '300px' }}>
+            <a href="LINK" className="primary-button" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginBottom: '20px', width: '100%', maxWidth: '300px' }}>
               Comprar Agora por R$ 29,90
             </a>
 
             <div>
               <button onClick={() => setTelaAtual('resultados')} className="restart-button">
                 ← Voltar para Meus Resultados
+              </button>
+            </div>
+            <div>
+              <button onClick={() => setTelaAtual('home')} className="restart-button">
+                ← Voltar ao inicio
               </button>
             </div>
           </div>
@@ -309,14 +431,29 @@ export default function SkincareQuiz() {
       {/* RODAPÉ GLOBAL (APARECE EM TODAS AS TELAS) */}
       {/* ================================================== */}
       <footer className="global-footer">
-        <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Meta Platforms, Inc.</p>
-        <p>Como Participante do Programa de Associados da Amazon, sou remunerado pelas compras qualificadas efetuadas.</p>
-        <div className="footer-links" style={{ display: 'flex', justifyContent: 'center', gap: '15px', cursor: 'pointer' }}>
-          <span onClick={() => setTelaAtual('termos')} style={{ textDecoration: 'underline' }}>Termos de Uso</span>
-          <span onClick={() => setTelaAtual('privacidade')} style={{ textDecoration: 'underline' }}>Políticas de Privacidade</span>
+      <p>Esta plataforma não é afiliada ao Facebook ou a qualquer entidade do Meta Platforms, Inc.</p>
+      <p>Como Participantes do Programa de Associados da Amazon, somos remunerados pelas compras qualificadas efetuadas.</p>
+      
+      {/* SEÇÃO DE CONTATO (E-MAIL E WHATSAPP) */}
+      <div className="footer-contact" style={{ margin: '15px 0', fontSize: '0.9rem' }}>
+        <p style={{ marginBottom: '8px', fontWeight: 'bold' }}>Precisa de Ajuda? Fale conosco:</p>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+          <a href="mailto:gartelux@gmail.com" style={{ color: '#2563EB', textDecoration: 'none' }}>
+            ✉️ E-mail: gartelux@gmail.com
+          </a>
+          <a href="LINK WPP." target="_blank" rel="noopener noreferrer" style={{ color: '#16A34A', textDecoration: 'none' }}>
+            💬 WhatsApp: Suporte Direto
+          </a>
         </div>
-        <p style={{ marginTop: '20px', fontSize: '0.7rem' }}>&copy; 2026 Garte Lux. Todos os direitos reservados.</p>
-      </footer>
+      </div>
+
+      <div className="footer-links" style={{ display: 'flex', justifyContent: 'center', gap: '15px', cursor: 'pointer', marginTop: '10px' }}>
+        <span onClick={() => setTelaAtual('termos')} style={{ textDecoration: 'underline' }}>Termos de Uso</span>
+        <span onClick={() => setTelaAtual('privacidade')} style={{ textDecoration: 'underline' }}>Políticas de Privacidade</span>
+      </div>
+      
+      <p style={{ marginTop: '20px', fontSize: '0.7rem' }}>&copy; 2026 Garte Lux. Todos os direitos reservados.</p>
+    </footer>
 
     </div>
   );
