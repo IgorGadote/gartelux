@@ -144,6 +144,7 @@ export const skincareData = {
     {
       id: "p1",
       nome: "Gel de Limpeza CeraVe",
+      categoria: "limpeza",
       imagem_url: "/produtos/cerave-geldelimpeza.jpg",
       link_compra: "https://link.amazon/B021t2gh9",
       gatilho: { oleosidade: 8 }
@@ -151,6 +152,7 @@ export const skincareData = {
     {
       id: "p2",
       nome: "Loção de Limpeza Hidratante CeraVe",
+      categoria: "limpeza",
       imagem_url: "/produtos/cerave-hidrat.jpg",
       link_compra: "https://link.amazon/B0e7ukEgP",
       gatilho: { ressecamento: 8 }
@@ -158,6 +160,7 @@ export const skincareData = {
     {
       id: "p3",
       nome: "Sabonete Líquido Actine (Darrow)",
+      categoria: "limpeza",
       imagem_url: "produtos/sabliquido-actine-darrow.jpg",
       link_compra: "https://link.amazon/B0hTnC0eP",
       gatilho: { acne: 7, oleosidade: 7 }
@@ -165,6 +168,7 @@ export const skincareData = {
     {
       id: "p4",
       nome: "Cetaphil Loção de Limpeza (Pele Sensível)",
+      categoria: "limpeza",
       imagem_url: "produtos/locdelimpeza-cetaphil.jpg",
       link_compra: "https://link.amazon/B02YfXFq9",
       gatilho: { sensibilidade: 8 }
@@ -174,6 +178,7 @@ export const skincareData = {
     {
       id: "p5",
       nome: "Sérum Ácido Salicílico Principia",
+      categoria: "serum",
       imagem_url: "/produtos/se-acd-salicilico.jpg",
       link_compra: "https://link.amazon/B0dqhorlh",
       gatilho: { acne: 10 }
@@ -181,6 +186,7 @@ export const skincareData = {
     {
       id: "p6",
       nome: "Sérum Niacinamida Principia",
+      categoria: "serum",
       imagem_url: "produtos/se-niacinamida-principia.jpg",
       link_compra: "https://link.amazon/B0hvNDLgI",
       gatilho: { manchas: 5, oleosidade: 4 }
@@ -188,6 +194,7 @@ export const skincareData = {
     {
       id: "p7",
       nome: "Sérum Revitalift Ácido Hialurônico (L'Oréal)",
+      categoria: "serum",
       imagem_url: "produtos/se-revitalift-acdhialuronico.jpg",
       link_compra: "https://link.amazon/B0jfP1GFU",
       gatilho: { ressecamento: 5, antiidade: 5 }
@@ -195,6 +202,7 @@ export const skincareData = {
     {
       id: "p8",
       nome: "Sérum Retinol Puro (L'Oréal)",
+      categoria: "serum",
       imagem_url: "produtos/se-retinolpuro-loreal.jpg",
       link_compra: "https://link.amazon/B0bF5yBjV",
       gatilho: { antiidade: 10 }
@@ -202,6 +210,7 @@ export const skincareData = {
     {
       id: "p9",
       nome: "Sérum de Vitamina C Principia",
+      categoria: "serum",
       imagem_url: "produtos/se-vitC.jpg",
       link_compra: "https://link.amazon/B0ftkcYrW",
       gatilho: { manchas: 8 }
@@ -209,6 +218,7 @@ export const skincareData = {
     {
       id: "p10",
       nome: "Ácido Glicólico Creamy",
+      categoria: "acido",
       imagem_url: "produtos/acd-glicolico-creamy.jpg",
       link_compra: "https://link.amazon/B04IGt90F",
       gatilho: { textura: 10 }
@@ -216,6 +226,7 @@ export const skincareData = {
     {
       id: "p11",
       nome: "Ácido Mandélico Creamy",
+      categoria: "acido",
       imagem_url: "produtos/acd-mandelico-creamy.jpg",
       link_compra: "https://link.amazon/B063GaOct",
       gatilho: { manchas: 8, sensibilidade: 6 }
@@ -225,6 +236,7 @@ export const skincareData = {
     {
       id: "p12",
       nome: "Hidratante Neutrogena Hydro Boost Water Gel",
+      categoria: "creme",
       imagem_url: "produtos/hidrat-hydroboostwatergel-neutrogena.jpg",
       link_compra: "https://link.amazon/B0fhhAh94",
       gatilho: { oleosidade: 5, ressecamento: 5 }
@@ -232,6 +244,7 @@ export const skincareData = {
     {
       id: "p13",
       nome: "Creme Hidratante CeraVe",
+      categoria: "creme",
       imagem_url: "produtos/cremehidrat-cerave.jpg",
       link_compra: "https://link.amazon/B0h8unlac",
       gatilho: { ressecamento: 10 }
@@ -239,6 +252,7 @@ export const skincareData = {
     {
       id: "p14",
       nome: "Creme Hidratante Minéral 89 Vichy",
+      categoria: "creme",
       imagem_url: "produtos/hidrat-mineral89-vichy.jpg",
       link_compra: "https://link.amazon/B05pmqmYA",
       gatilho: { sensibilidade: 5, ressecamento: 4 }
@@ -246,6 +260,7 @@ export const skincareData = {
     {
       id: "p15",
       nome: "Cicaplast Baume B5 (La Roche-Posay)",
+      categoria: "creme",
       imagem_url: "produtos/cicaplastbaumeb5-larocheposay.jpg",
       link_compra: "https://link.amazon/B03xRAFIn",
       gatilho: { sensibilidade: 10 }
@@ -253,6 +268,7 @@ export const skincareData = {
     {
       id: "p16",
       nome: "Creme Reparador para os Olhos CeraVe",
+      categoria: "creme",
       imagem_url: "produtos/cremereparador-paraolhos-cerave.jpg",
       link_compra: "https://amzn.to/3TcIa1e",
       gatilho: { olheiras: 10 }
@@ -262,6 +278,7 @@ export const skincareData = {
     {
       id: "p17",
       nome: "Protetor Solar Anthelios Airlicium (La Roche-Posay)",
+      categoria: "protetor",
       imagem_url: "produtos/protsolar-atheliosaircilium.jpg",
       link_compra: "https://link.amazon/B0ai42Epu",
       gatilho: { oleosidade: 10 }
@@ -269,6 +286,7 @@ export const skincareData = {
     {
       id: "p18",
       nome: "Protetor Solar Bioré UV Aqua Rich",
+      categoria: "protetor",
       imagem_url: "produtos/protsolar-bioreuv-aquarich.jpg",
       link_compra: "https://link.amazon/B01Gcz6uo",
       gatilho: { ressecamento: 7 }
@@ -276,6 +294,7 @@ export const skincareData = {
     {
       id: "p19",
       nome: "Protetor Solar ISDIN Fusion Water 50",
+      categoria: "protetor",
       imagem_url: "produtos/protsolar-fisionwater50-isdin.jpg",
       link_compra: "https://link.amazon/B095qCb6d",
       gatilho: { sensibilidade: 4, oleosidade: 4 }
@@ -283,154 +302,175 @@ export const skincareData = {
     {
       id: "p20",
       nome: "Protetor Solar Eucerin Pigment Control",
+      categoria: "protetor",
       imagem_url: "produtos/protsolar-pigmentcontrol-eucerin.jpg",
       link_compra: "https://link.amazon/B0ecQF0td",
       gatilho: { manchas: 10 }
     },
     // --- NOVOS PRODUTOS: LIMPEZA ---
     {
-  id: "p21",
-  nome: "Gel de Limpeza Effaclar Concentrado La Roche-Posay",
-  imagem_url: "produtos/geldelimpeza-effaclar.jpg",
-  link_compra: "https://link.amazon/B02qS0jza",
-  gatilho: { oleosidade: 10, acne: 8 }
+      id: "p21",
+      nome: "Gel de Limpeza Effaclar Concentrado La Roche-Posay",
+      categoria: "limpeza",
+      imagem_url: "produtos/geldelimpeza-effaclar.jpg",
+      link_compra: "https://link.amazon/B02qS0jza",
+      gatilho: { oleosidade: 10, acne: 8 }
     },
     {
-  id: "p22",
-  nome: "Gel de Limpeza Micelar Sensibio Bioderma",
-  imagem_url: "produtos/gel-sensibio-bioderma.jpg",
-  link_compra: "https://link.amazon/B07fnB8tT",
-  gatilho: { sensibilidade: 10, ressecamento: 5 }
+      id: "p22",
+      nome: "Gel de Limpeza Micelar Sensibio Bioderma",
+      categoria: "limpeza",
+      imagem_url: "produtos/gel-sensibio-bioderma.jpg",
+      link_compra: "https://link.amazon/B07fnB8tT",
+      gatilho: { sensibilidade: 10, ressecamento: 5 }
     },
     {
-  id: "p23",
-  nome: "Óleo Demaquilante Cleansing Oil Bioderma",
-  imagem_url: "produtos/cleansingoil-bioderma.jpg",
-  link_compra: "https://link.amazon/B0bnYgR9U",
-  gatilho: { textura: 8, oleosidade: 5 }
+      id: "p23",
+      nome: "Óleo Demaquilante Cleansing Oil Bioderma",
+      categoria: "limpeza",
+      imagem_url: "produtos/cleansingoil-bioderma.jpg",
+      link_compra: "https://link.amazon/B0bnYgR9U",
+      gatilho: { textura: 8, oleosidade: 5 }
   },
   {
-  id: "p24",
-  nome: "Sabonete Líquido Uniform & Matte Garnier",
-  imagem_url: "produtos/sabonete-uniformmatte-garnier.jpg",
-  link_compra: "https://link.amazon/B00PRkPNC",
-  gatilho: { manchas: 7, oleosidade: 7 }
+      id: "p24",
+      nome: "Sabonete Líquido Uniform & Matte Garnier",
+      categoria: "limpeza",
+      imagem_url: "produtos/sabonete-uniformmatte-garnier.jpg",
+      link_compra: "https://link.amazon/B00PRkPNC",
+      gatilho: { manchas: 7, oleosidade: 7 }
   },
   {
-  id: "p25",
-  nome: "Gel de Limpeza Purified Skin Neutrogena",
-  imagem_url: "produtos/geldelimpeza-purified-neutrogena.jpg",
-  link_compra: "https://link.amazon/B06jPAuv4",
-  gatilho: { sensibilidade: 10 }
+      id: "p25",
+      nome: "Gel de Limpeza Purified Skin Neutrogena",
+      categoria: "limpeza",
+      imagem_url: "produtos/geldelimpeza-purified-neutrogena.jpg",
+      link_compra: "https://link.amazon/B06jPAuv4",
+      gatilho: { sensibilidade: 10 }
   },
 // --- NOVOS PRODUTOS: TRATAMENTO (SÉRUNS E ÁCIDOS) ---
   {
-  id: "p26",
-  nome: "Sérum Hidratante Anti-Idade Hyaluronic Concentrate ISDIN",
-  imagem_url: "produtos/se-isdin-antiidade.jpg",
-  link_compra: "https://link.amazon/B00UuqFjM",
-  gatilho: { acne: 10, antiidade: 8 }
+      id: "p26",
+      nome: "Sérum Hidratante Anti-Idade Hyaluronic Concentrate ISDIN",
+      categoria: "serum",
+      imagem_url: "produtos/se-isdin-antiidade.jpg",
+      link_compra: "https://link.amazon/B00UuqFjM",
+      gatilho: { acne: 10, antiidade: 8 }
   },
   {
-  id: "p27",
-  nome: "Sérum Ácido Lático Principia",
-  imagem_url: "produtos/se-acdlatico-principia.jpg",
-  link_compra: "https://link.amazon/B00aw420y",
-  gatilho: { textura: 10, sensibilidade: 6 }
+      id: "p27",
+      nome: "Sérum Ácido Lático Principia",
+      categoria: "serum",
+      imagem_url: "produtos/se-acdlatico-principia.jpg",
+      link_compra: "https://link.amazon/B00aw420y",
+      gatilho: { textura: 10, sensibilidade: 6 }
   },
   {
-  id: "p28",
-  nome: "Sérum Salicyli C10 La Roche-Posay",
-  imagem_url: "produtos/se-salicylic10-laroche.jpg",
-  link_compra: "https://link.amazon/B0eKM4UbQ",
-  gatilho: { antiidade: 8, manchas: 7 }
+      id: "p28",
+      nome: "Sérum Salicyli C10 La Roche-Posay",
+      categoria: "serum",
+      imagem_url: "produtos/se-salicylic10-laroche.jpg",
+      link_compra: "https://link.amazon/B0eKM4UbQ",
+      gatilho: { antiidade: 8, manchas: 7 }
   },
   {  
-  id: "p29",
-  nome: "Solução Peeling AHA 30% + BHA 2% The Ordinary",
-  imagem_url: "produtos/peeling-ahabha-theordinary.jpg",
-  link_compra: "https://link.amazon/B0hzZYv4o",
-  gatilho: { textura: 10, acne: 8 }
+      id: "p29",
+      nome: "Solução Peeling AHA 30% + BHA 2% The Ordinary",
+      categoria: "serum",
+      imagem_url: "produtos/peeling-ahabha-theordinary.jpg",
+      link_compra: "https://link.amazon/B0hzZYv4o",
+      gatilho: { textura: 10, acne: 8 }
   },
   {
-  id: "p30",
-  nome: "Sérum Clareador Facial Ultraleve Antimanchas Eucerin",
-  imagem_url: "produtos/se-antimanchas-eucerin.jpg",
-  link_compra: "https://link.amazon/B02vqjVkM",
-  gatilho: { manchas: 10 }
+      id: "p30",
+      nome: "Sérum Clareador Facial Ultraleve Antimanchas Eucerin",
+      categoria: "serum",
+      imagem_url: "produtos/se-antimanchas-eucerin.jpg",
+      link_compra: "https://link.amazon/B02vqjVkM",
+      gatilho: { manchas: 10 }
   },
 // --- NOVOS PRODUTOS: HIDRATAÇÃO E REPARAÇÃO ---
   {
-  id: "p31",
-  nome: "Hidratante Facial Epidrat Calm Mantecorp",
-  imagem_url: "produtos/hidrat-epidratcalm-mantecorp.jpg",
-  link_compra: "https://link.amazon/B07jdHTCA",
-  gatilho: { sensibilidade: 10, ressecamento: 6 }
+      id: "p31",
+      nome: "Creme Hidratante Epidrat Calm Mantecorp",
+      categoria: "Creme",
+      imagem_url: "produtos/hidrat-epidratcalm-mantecorp.jpg",
+      link_compra: "https://link.amazon/B07jdHTCA",
+      gatilho: { sensibilidade: 10, ressecamento: 6 }
   },
   {
-  id: "p32",
-  nome: "Creme Calmante Multirreparador La Roche-Posay",
-  imagem_url: "produtos/cremecalmante-larocheposay.jpg",
-  link_compra: "https://link.amazon/B0htRAnzW",
-  gatilho: { sensibilidade: 10, ressecamento: 8 }
+      id: "p32",
+      nome: "Creme Calmante Multirreparador La Roche-Posay",
+      categoria: "creme",
+      imagem_url: "produtos/cremecalmante-larocheposay.jpg",
+      link_compra: "https://link.amazon/B0htRAnzW",
+      gatilho: { sensibilidade: 10, ressecamento: 8 }
   },
   {
-  id: "p33",
-  nome: "Hidratante Facial Effaclar H Iso-biome La Roche-Posay",
-  imagem_url: "produtos/hidrat-effaclar-larocheposay.jpg",
-  link_compra: "https://link.amazon/B0h7XJdnG",
-  gatilho: { sensibilidade: 10 }
+      id: "p33",
+      nome: "Creme Hidratante Effaclar H Iso-biome La Roche-Posay",
+      categoria: "creme",
+      imagem_url: "produtos/hidrat-effaclar-larocheposay.jpg",
+      link_compra: "https://link.amazon/B0h7XJdnG",
+      gatilho: { sensibilidade: 10 }
   },
   {
-  id: "p34",
-  nome: "Gel Hidratante Facial Antioleosidade La Roche-Posay",
-  imagem_url: "produtos/hidrat-antioleosidade-larocheposay.jpg",
-  link_compra: "https://link.amazon/B00HDP4Ge",
-  gatilho: { oleosidade: 10, acne: 5 }
+      id: "p34",
+      nome: "Gel Hidratante Facial Antioleosidade La Roche-Posay",
+      categoria: "creme",
+      imagem_url: "produtos/hidrat-antioleosidade-larocheposay.jpg",
+      link_compra: "https://link.amazon/B00HDP4Ge",
+      gatilho: { oleosidade: 10, acne: 5 }
   },
   {
-  id: "p35",
-  nome: "Sérum Rejuvenescedor Facial Ivy C Mantecorp",
-  imagem_url: "produtos/se-ivyc-mantecorp.jpg",
-  link_compra: "https://link.amazon/B0g3Sw3mt",
-  gatilho: { antiidade: 10, manchas: 5 }
+      id: "p35",
+      nome: "Sérum Rejuvenescedor Facial Ivy C Mantecorp",
+      categoria: "serum",
+      imagem_url: "produtos/se-ivyc-mantecorp.jpg",
+      link_compra: "https://link.amazon/B0g3Sw3mt",
+      gatilho: { antiidade: 10, manchas: 5 }
   },
 
 // --- NOVOS PRODUTOS: PROTEÇÃO SOLAR ---
   {
-  id: "p36",
-  nome: "Protetor Solar Episol Sec OC FPS 60 Mantecorp",
-  imagem_url: "produtos/protsolar-episolsec-mantecorp.jpg",
-  link_compra: "https://link.amazon/B0hVlMwIN",
-  gatilho: { oleosidade: 10 }
+      id: "p36",
+      nome: "Protetor Solar Episol Sec OC FPS 60 Mantecorp",
+      categoria: "protetor",
+      imagem_url: "produtos/protsolar-episolsec-mantecorp.jpg",
+      link_compra: "https://link.amazon/B0hVlMwIN",
+      gatilho: { oleosidade: 10 }
   },
   {
-  id: "p37",
-  nome: "Protetor Solar Sun Fresh Neutrogena",
-  imagem_url: "produtos/protsolar-sunfresh-neutrogena.jpg",
-  link_compra: "https://link.amazon/B0f3dlTa2",
-  gatilho: { oleosidade: 8, acne: 7 }
+      id: "p37",
+      nome: "Protetor Solar Sun Fresh Neutrogena",
+      categoria: "protetor",
+      imagem_url: "produtos/protsolar-sunfresh-neutrogena.jpg",
+      link_compra: "https://link.amazon/B0f3dlTa2",
+      gatilho: { oleosidade: 8, acne: 7 }
   },
   {  
-  id: "p38",
-  nome: "Protetor Solar Minesol Oil Control Neostrata",
-  imagem_url: "produtos/protsolar-minesol-neostrata.jpg",
-  link_compra: "https://link.amazon/B05hpVspM",
-  gatilho: { oleosidade: 10, antiidade: 5 }
+      id: "p38",
+      nome: "Protetor Solar Minesol Oil Control Neostrata",
+      categoria: "protetor",
+      imagem_url: "produtos/protsolar-minesol-neostrata.jpg",
+      link_compra: "https://link.amazon/B05hpVspM",
+      gatilho: { oleosidade: 10, antiidade: 5 }
   },
   {
-  id: "p39",
-  nome: "Protetor Solar UV Defender L'Oréal",
-  imagem_url: "produtos/protsolar-uvdefender-loreal.jpg",
-  link_compra: "https://link.amazon/B0htWPFv2",
-  gatilho: { ressecamento: 10, antiidade: 6 }
+      id: "p39",
+      nome: "Protetor Solar UV Defender L'Oréal",
+      categoria: "protetor",
+      imagem_url: "produtos/protsolar-uvdefender-loreal.jpg",
+      link_compra: "https://link.amazon/B0htWPFv2",
+      gatilho: { ressecamento: 10, antiidade: 6 }
   },
   {
-  id: "p40",
-  nome: "Protetor Solar FotoUltra Spot Prevent ISDIN",
-  imagem_url: "produtos/protsolar-spotprevent-isdin.jpg",
-  link_compra: "https://link.amazon/B0hU2nst3",
-  gatilho: { manchas: 10, antiidade: 7 }
+      id: "p40",
+      nome: "Protetor Solar FotoUltra Spot Prevent ISDIN",
+      categoria: "protetor",
+      imagem_url: "produtos/protsolar-spotprevent-isdin.jpg",
+      link_compra: "https://link.amazon/B0hU2nst3",
+      gatilho: { manchas: 10, antiidade: 7 }
   }
   ]
 };

@@ -81,8 +81,22 @@ export default function SkincareQuiz() {
 
     produtosComScore.sort((a, b) => b.score - a.score);
 
-    const recomendadosRelevantes = produtosComScore.filter(p => p.score > 0);
-    return recomendadosRelevantes.slice(0, 6);
+   const recomendadosRelevantes = produtosComScore.filter(p => p.score > 0);
+
+   const top6Diversificado = [];
+   const categoriasVistas = new Set();
+
+   for (let produto of recomendadosRelevantes) {
+     if (!categoriasVistas.has(produto.categoria)) {
+      top6Diversificado.push(produto);
+      categoriasVistas.add(produto.categoria);
+     }
+     if (top6Diversificado.length === 6) {
+       break;
+     }
+   }
+
+  return top6Diversificado;
   };
 
   // 1. Calcula o Tipo de Pele exato com margem de tolerância para Pele Mista
